@@ -6,9 +6,9 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "tsup",
-    "start:dev": "tsx --watch ./src/server.ts",
-    "start:prod": "node dist/src/server",
+    "build": "echo tsup",
+    "start:dev": "echo tsx --watch ./src/server.ts",
+    "start:prod": "echo node dist/src/server",
     "lint": "biome lint --fix",
     "test": "vitest run",
     "test:watch": "vitest",

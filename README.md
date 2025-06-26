@@ -1,18 +1,32 @@
-- [x] Criar uma Instância melhorada do Logger
-- [x] Criar uma versão melhorada do Verificador de Env
-- [x] Configurar o Drizzle e elaborar os casos de uso e modelagem de dados
-- [x] Ajeitar o Nest
-- [x] Criar a Rota de Hello World
-- [x] Criar um Error Handler Global
-- [x] Implementar um CI
-- [x] Criar o Dockerfile
-- [ ] Verificar o Schema do Drizzle
-- [ ] Criar o Projeto no Github
+product
+- id
+- name
+- description
+- category_id
+- brand_id
+- cost_price
+- markup_percentage
+- created_at
+- updated_at
 
-EU -> Especificar o que vai ser feito;
+category
+- id
+- name
+- category_from@category->id
 
-CRIAR UM USUÁRIO -> string(id);
-Casos de Uso -> Testes
-VC -> Criar os Testes Unitários;
-EU -> Ler e Ver se os testes fazem sentido;
-EU -> Criar a feature;
+brand
+- id
+- name
+- logo
+
+stock
+- id
+- product_id
+- amount
+
+stock_exits
+- product_id
+- amount
+- exit_at
+- cost_price
+- markup_percentage
