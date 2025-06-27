@@ -1,13 +1,13 @@
-import type { UpdateCategoryModel, CategoryModel } from "@/dtos/category";
+import type { UpdateCategoryDTO, CategoryDTO } from "@/dtos/category";
 import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import type { Service } from "g/types";
 
 export class UpdateCategory
-	implements Service<never, UpdateCategoryModel, boolean>
+	implements Service<never, UpdateCategoryDTO, boolean>
 {
-	constructor(private repository: InMemoryRepository<CategoryModel>) {}
+	constructor(private repository: InMemoryRepository<CategoryDTO>) {}
 
-	async run({ id, ...content }: UpdateCategoryModel): Promise<boolean> {
+	async run({ id, ...content }: UpdateCategoryDTO): Promise<boolean> {
 		const targetCategoryIndex = this.repository.data.findIndex(
 			(target) => target.id === id,
 		);

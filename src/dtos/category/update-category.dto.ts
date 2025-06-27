@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-export const UpdateCategoryModel = z.object({
+export const UpdateCategoryDTO = z.object({
 	id: z.string().uuid(),
 	name: z.string().optional(),
 	categoryFrom: z.string().uuid().optional(),
 });
 
-export type UpdateCategoryModel = z.infer<typeof UpdateCategoryModel>;
+export type UpdateCategoryDTO = z.infer<typeof UpdateCategoryDTO>;

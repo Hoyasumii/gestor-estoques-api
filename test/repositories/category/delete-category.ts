@@ -1,13 +1,13 @@
-import type { DeleteCategoryModel, CategoryModel } from "@/dtos/category";
+import type { DeleteCategoryDTO, CategoryDTO } from "@/dtos/category";
 import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import type { Service } from "g/types";
 
 export class DeleteCategory
-	implements Service<never, DeleteCategoryModel, boolean>
+	implements Service<never, DeleteCategoryDTO, boolean>
 {
-	constructor(private repository: InMemoryRepository<CategoryModel>) {}
+	constructor(private repository: InMemoryRepository<CategoryDTO>) {}
 
-	async run(id: DeleteCategoryModel): Promise<boolean> {
+	async run(id: DeleteCategoryDTO): Promise<boolean> {
 		const childrenIndex = this.repository.data.findIndex(
 			(target) => target.categoryFrom === id,
 		);

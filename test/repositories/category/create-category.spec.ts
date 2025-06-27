@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { CreateCategory } from "./create-category";
 import { InMemoryRepository } from "~/test/repositories/in-memory-repository";
-import type { CategoryModel } from "@/dtos/category";
+import type { CategoryDTO } from "@/dtos/category";
 
-class Dep extends InMemoryRepository<CategoryModel> {}
+class Dep extends InMemoryRepository<CategoryDTO> {}
 
 let dependency: Dep;
 let sut: CreateCategory;

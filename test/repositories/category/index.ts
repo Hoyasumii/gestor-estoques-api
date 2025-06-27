@@ -1,4 +1,4 @@
-import type { CategoryModel } from "@/dtos/category";
+import type { CategoryDTO } from "@/dtos/category";
 import type { CategoryRepositoryInterface } from "@/repositories/category-repository-interface";
 import { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import { CreateCategory } from "./create-category";
@@ -10,7 +10,7 @@ import { DeleteCategory } from "./delete-category";
 import { GetParentByCategoryId } from "./get-parent-by-category-id";
 
 export class CategoryRepository
-	extends InMemoryRepository<CategoryModel>
+	extends InMemoryRepository<CategoryDTO>
 	implements CategoryRepositoryInterface
 {
 	get length(): number {

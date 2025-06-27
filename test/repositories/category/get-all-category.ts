@@ -1,13 +1,13 @@
-import type { CategoryModel } from "@/dtos/category";
+import type { CategoryDTO } from "@/dtos/category";
 import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import type { Service } from "g/types";
 
 export class GetAllCategory
-	implements Service<never, unknown, Array<CategoryModel>>
+	implements Service<never, unknown, Array<CategoryDTO>>
 {
-	constructor(private repository: InMemoryRepository<CategoryModel>) {}
+	constructor(private repository: InMemoryRepository<CategoryDTO>) {}
 
-	async run(limit?: number, page?: number): Promise<Array<CategoryModel>> {
+	async run(limit?: number, page?: number): Promise<Array<CategoryDTO>> {
 		const data = this.repository.data;
 
 		if (!limit) return data;

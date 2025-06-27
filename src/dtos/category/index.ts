@@ -1,6 +1,6 @@
-export { CreateCategoryModel } from "./create-category.model";
-export { DeleteCategoryModel } from "./delete-category.model";
-export { CategoryIdModel } from "./read-category-by-id.model";
-export { ReadCategoryByRootModel } from "./read-category-by-root.model";
-export { UpdateCategoryModel } from "./update-category.model";
-export { CategoryModel } from "./category.model";
+export { CreateCategoryDTO } from "./create-category.dto";
+export { DeleteCategoryDTO } from "./delete-category.dto";
+export { CategoryIdDTO } from "./read-category-by-id.dto";
+export { ReadCategoryByRootDTO } from "./read-category-by-root.dto";
+export { UpdateCategoryDTO } from "./update-category.dto";
+export { CategoryDTO } from "./category.dto";
