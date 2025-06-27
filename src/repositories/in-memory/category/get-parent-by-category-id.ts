@@ -8,6 +8,6 @@ export class GetParentByCategoryId
 	constructor(private repository: InMemoryRepository<CategoryModel>) {}
 
 	async run(data: CategoryIdModel): Promise<CategoryModel | undefined> {
-		return this.repository.data.find((target) => target.categoryFrom === data);
+		return this.repository.data.find((target) => target.id === data);
 	}
 }

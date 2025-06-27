@@ -19,25 +19,13 @@ export class CategoryRepository
 	extends InMemoryRepository<CategoryModel>
 	implements CategoryRepositoryInterface
 {
-	private createCategory: CreateCategory;
-	private categoryExists: CategoryExists;
-	private categoryHasChildren: CategoryHasChildren;
-	private getAllCategory: GetAllCategory;
-	private getParentByCategoryId: GetParentByCategoryId;
-	private updateCategory: UpdateCategory;
-	private deleteCategory: DeleteCategory;
-
-	constructor() {
-		super();
-
-		this.createCategory = new CreateCategory(this);
-		this.categoryExists = new CategoryExists(this);
-		this.categoryHasChildren = new CategoryHasChildren(this);
-		this.getAllCategory = new GetAllCategory(this);
-		this.getParentByCategoryId = new GetParentByCategoryId(this);
-		this.updateCategory = new UpdateCategory(this);
-		this.deleteCategory = new DeleteCategory(this);
-	}
+	private createCategory = new CreateCategory(this);
+	private categoryExists = new CategoryExists(this);
+	private categoryHasChildren = new CategoryHasChildren(this);
+	private getAllCategory = new GetAllCategory(this);
+	private getParentByCategoryId = new GetParentByCategoryId(this);
+	private updateCategory = new UpdateCategory(this);
+	private deleteCategory = new DeleteCategory(this);
 
 	async create(data: CreateCategoryModel): Promise<CategoryIdModel> {
 		return await this.createCategory.run(data);
