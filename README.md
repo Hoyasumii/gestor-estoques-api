@@ -30,3 +30,5 @@ stock_exits
 - exit_at
 - cost_price
 - markup_percentage
+
+- [ ] Criar um Paginator

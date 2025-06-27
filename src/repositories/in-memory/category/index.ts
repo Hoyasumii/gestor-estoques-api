@@ -1,10 +1,4 @@
-import type {
-	CategoryIdModel,
-	CategoryModel,
-	CreateCategoryModel,
-	DeleteCategoryModel,
-	UpdateCategoryModel,
-} from "@/models/category";
+import type { CategoryModel } from "@/models/category";
 import type { CategoryRepositoryInterface } from "@/repositories/category-repository-interface";
 import { InMemoryRepository } from "@/repositories/in-memory-repository";
 import { CreateCategory } from "./create-category";
@@ -19,6 +13,10 @@ export class CategoryRepository
 	extends InMemoryRepository<CategoryModel>
 	implements CategoryRepositoryInterface
 {
+	get length(): number {
+		return this.data.length;
+	}
+
 	create = new CreateCategory(this).run;
 	exists = new CategoryExists(this).run;
 	hasChildren = new CategoryHasChildren(this).run;
