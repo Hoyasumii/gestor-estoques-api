@@ -19,41 +19,11 @@ export class CategoryRepository
 	extends InMemoryRepository<CategoryModel>
 	implements CategoryRepositoryInterface
 {
-	private createCategory = new CreateCategory(this);
-	private categoryExists = new CategoryExists(this);
-	private categoryHasChildren = new CategoryHasChildren(this);
-	private getAllCategory = new GetAllCategory(this);
-	private getParentByCategoryId = new GetParentByCategoryId(this);
-	private updateCategory = new UpdateCategory(this);
-	private deleteCategory = new DeleteCategory(this);
-
-	async create(data: CreateCategoryModel): Promise<CategoryIdModel> {
-		return await this.createCategory.run(data);
-	}
-
-	async getAll(): Promise<Array<CategoryModel>> {
-		return await this.getAllCategory.run();
-	}
-
-	async exists(data: CategoryIdModel): Promise<boolean> {
-		return await this.categoryExists.run(data);
-	}
-
-	async hasChildren(data: CategoryIdModel): Promise<boolean> {
-		return await this.categoryHasChildren.run(data);
-	}
-
-	async getParentById(
-		data: CategoryIdModel,
-	): Promise<CategoryModel | undefined> {
-		return await this.getParentByCategoryId.run(data);
-	}
-
-	async update(data: UpdateCategoryModel): Promise<boolean> {
-		return await this.updateCategory.run(data);
-	}
-
-	async delete(data: DeleteCategoryModel): Promise<boolean> {
-		return await this.deleteCategory.run(data);
-	}
+	create = new CreateCategory(this).run;
+	exists = new CategoryExists(this).run;
+	hasChildren = new CategoryHasChildren(this).run;
+	getAll = new GetAllCategory(this).run;
+	getParentById = new GetParentByCategoryId(this).run;
+	update = new UpdateCategory(this).run;
+	delete = new DeleteCategory(this).run;
 }

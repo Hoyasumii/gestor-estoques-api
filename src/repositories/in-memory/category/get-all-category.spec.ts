@@ -2,8 +2,7 @@ import type { CategoryModel } from "@/models/category";
 import { InMemoryRepository } from "@/repositories/in-memory-repository";
 import { GetAllCategory } from "./get-all-category";
 import { beforeEach, describe, expect, it } from "vitest";
-import { randomUUID } from "node:crypto";
-import { faker } from "@faker-js/faker";
+import { makeCategory } from "@/factories/dev/entities";
 
 class Dep extends InMemoryRepository<CategoryModel> {}
 
@@ -18,10 +17,7 @@ describe("Testing Get All Category Method <<in-memory>>", () => {
 
 	it("should get all categories", async () => {
 		for (let index = 0; index < 5; index++) {
-			dependency.data.push({
-				id: randomUUID(),
-				name: faker.commerce.productName(),
-			});
+			dependency.data.push(makeCategory());
 		}
 
 		const content = await sut.run();
