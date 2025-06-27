@@ -1,6 +1,6 @@
-import type { CategoryModel } from "@/models/category";
+import type { CategoryModel } from "@/dtos/category";
 import type { CategoryRepositoryInterface } from "@/repositories/category-repository-interface";
-import { InMemoryRepository } from "@/repositories/in-memory-repository";
+import { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import { CreateCategory } from "./create-category";
 import { CategoryExists } from "./category-exists";
 import { CategoryHasChildren } from "./category-has-children";

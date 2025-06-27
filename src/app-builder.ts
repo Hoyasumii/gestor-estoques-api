@@ -1,5 +1,5 @@
 import { type INestApplication } from "@nestjs/common";
-import { EnvModel } from "./models";
+import { EnvModel } from "./dtos";
 import { NestFactory } from "@nestjs/core";
 import { logger, exposeEnvErrors } from "g/utils";
 

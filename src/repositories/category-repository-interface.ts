@@ -4,7 +4,7 @@ import type {
 	DeleteCategoryModel,
 	CategoryIdModel,
 	UpdateCategoryModel,
-} from "@/models/category";
+} from "@/dtos/category";
 
 export interface CategoryRepositoryInterface {
 	get length(): number;

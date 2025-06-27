@@ -13,7 +13,8 @@
     "paths": {
       "g/*": ["./src/globals/*"],
       "@/*": ["./src/*"],
-      "~/*": ["./*"]
+      "~/*": ["./*"],
+      "t/*": ["./test/*"]
     },
     "incremental": true,
     "skipLibCheck": true,

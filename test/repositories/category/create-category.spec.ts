@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { CreateCategory } from "./create-category";
-import { InMemoryRepository } from "@/repositories/in-memory-repository";
-import type { CategoryModel } from "@/models/category";
+import { InMemoryRepository } from "~/test/repositories/in-memory-repository";
+import type { CategoryModel } from "@/dtos/category";
 
 class Dep extends InMemoryRepository<CategoryModel> {}
 

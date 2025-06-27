@@ -1,4 +1,4 @@
-import type { EnvModel } from "@/models";
+import type { EnvModel } from "@/dtos";
 import type { ZodError } from "zod";
 import { logger } from "./logger";
 

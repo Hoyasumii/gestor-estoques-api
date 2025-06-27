@@ -1,5 +1,5 @@
-import type { CategoryIdModel, CategoryModel } from "@/models/category";
-import type { InMemoryRepository } from "@/repositories/in-memory-repository";
+import type { CategoryIdModel, CategoryModel } from "@/dtos/category";
+import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import type { Service } from "g/types";
 
 export class CategoryHasChildren

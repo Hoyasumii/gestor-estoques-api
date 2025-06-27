@@ -1,5 +1,5 @@
-import type { CategoryModel, CreateCategoryModel } from "@/models/category";
-import type { InMemoryRepository } from "@/repositories/in-memory-repository";
+import type { CategoryModel, CreateCategoryModel } from "@/dtos/category";
+import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import type { Service } from "g/types";
 import { randomUUID, type UUID } from "node:crypto";
 
