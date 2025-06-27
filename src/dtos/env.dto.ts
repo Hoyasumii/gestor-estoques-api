@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const EnvModel = z.object({
+export const EnvDTO = z.object({
 	PORT: z.string(),
 	NODE_ENV: z.enum(["development", "production", "testing"]),
 	POSTGRES_DATABASE: z.string(),
@@ -8,4 +8,4 @@ export const EnvModel = z.object({
 	POSTGRES_PASSWORD: z.string(),
 });
 
-export type EnvModel = z.infer<typeof EnvModel>;
+export type EnvDTO = z.infer<typeof EnvDTO>;

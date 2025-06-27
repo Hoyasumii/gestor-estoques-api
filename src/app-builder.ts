@@ -1,5 +1,5 @@
 import { type INestApplication } from "@nestjs/common";
-import { EnvModel } from "./dtos";
+import { EnvDTO } from "./dtos";
 import { NestFactory } from "@nestjs/core";
 import { logger, exposeEnvErrors } from "g/utils";
 
@@ -7,7 +7,7 @@ export class AppBuilder {
 	private constructor() {}
 
 	private verify(): boolean {
-		const verifyingEnvironment = EnvModel.safeParse(process.env);
+		const verifyingEnvironment = EnvDTO.safeParse(process.env);
 
 		if (!verifyingEnvironment.success) {
 			exposeEnvErrors(verifyingEnvironment.error);

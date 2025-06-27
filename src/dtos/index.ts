@@ -1,1 +1,1 @@
-export { EnvModel } from "./env-model";
+export { EnvDTO } from "./env.dto";
