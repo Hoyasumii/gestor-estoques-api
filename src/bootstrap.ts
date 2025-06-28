@@ -1,4 +1,5 @@
-import { StandardizeResponse, CatchEverything } from "@/interceptors";
+import { StandardizeResponse } from "@/interceptors";
+import { CatchEverything } from "@/filters";
 import { AppBuilder } from "./app-builder";
 import { HttpAdapterHost } from "@nestjs/core";
 
