@@ -1,4 +1,9 @@
-import type { CategoryDTO } from "@/dtos/category";
+import type {
+	CategoryDTO,
+	CategoryIdDTO,
+	CreateCategoryDTO,
+	UpdateCategoryDTO,
+} from "@/dtos/category";
 import type { CategoryRepositoryInterface } from "@/repositories/category-repository-interface";
 import { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import { CreateCategory } from "./create-category";
@@ -17,11 +22,31 @@ export class CategoryRepository
 		return this.data.length;
 	}
 
-	create = new CreateCategory(this).run;
-	exists = new CategoryExists(this).run;
-	hasChildren = new CategoryHasChildren(this).run;
-	getAll = new GetAllCategory(this).run;
-	getParentById = new GetParentByCategoryId(this).run;
-	update = new UpdateCategory(this).run;
-	delete = new DeleteCategory(this).run;
+	async create(data: CreateCategoryDTO) {
+		return await new CreateCategory(this).run(data);
+	}
+
+	async exists(data: CategoryIdDTO) {
+		return await new CategoryExists(this).run(data);
+	}
+
+	async hasChildren(data: CategoryIdDTO) {
+		return await new CategoryHasChildren(this).run(data);
+	}
+
+	async getAll(limit?: number, page?: number) {
+		return await new GetAllCategory(this).run(limit, page);
+	}
+
+	async getParentById(data: CategoryIdDTO) {
+		return await new GetParentByCategoryId(this).run(data);
+	}
+
+	async update(data: UpdateCategoryDTO) {
+		return await new UpdateCategory(this).run(data);
+	}
+
+	async delete(data: CategoryIdDTO) {
+		return await new DeleteCategory(this).run(data);
+	}
 }

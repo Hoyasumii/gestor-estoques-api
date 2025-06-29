@@ -20,6 +20,9 @@
 			"style": {
 				"useImportType": "off",
 				"noNonNullAssertion": "off"
+			},
+			"suspicious": {
+				"noFocusedTests": "off"
 			}
 		}
 	},
