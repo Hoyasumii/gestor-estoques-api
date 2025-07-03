@@ -25,8 +25,16 @@ export class DeleteCategoryService extends Service<
 			return await this.repository.delete(id);
 		}
 
-		//
+		let nearChildren = await this.repository.getNearChildren(id);
+
+		while (nearChildren) {
+			nearChildren = await this.repository.getNearChildren(id);
+		}
 
 		// this.repository.hasChildren
 	}
 }
+
+// Pai -> Verificar se tem Children
+// Se tiver -> Verificar se o children tem children [REPETE até que não tenha]
+// Se não tiver -> Remove.

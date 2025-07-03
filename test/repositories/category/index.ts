@@ -15,6 +15,7 @@ import { DeleteCategory } from "./delete-category";
 import { GetParentByCategoryId } from "./get-parent-by-category-id";
 import type { CategoryModel } from "@/models";
 import { GetCategory } from "./get-category";
+import { GetNearChildren } from "./get-near-children";
 
 export class CategoryRepository
 	extends InMemoryRepository<CategoryDTO>
@@ -42,6 +43,10 @@ export class CategoryRepository
 
 	async getAll(limit?: number, page?: number) {
 		return await new GetAllCategory(this).run(limit, page);
+	}
+
+	async getNearChildren(id: CategoryIdDTO): Promise<CategoryModel | undefined> {
+		return await new GetNearChildren(this).run(id);
 	}
 
 	async getParentById(data: CategoryIdDTO) {
