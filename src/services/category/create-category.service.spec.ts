@@ -4,6 +4,7 @@ import { CategoryRepository } from "~/test/repositories/category";
 import { CategoryIdDTO, type CreateCategoryDTO } from "@/dtos/category";
 import { faker } from "@faker-js/faker";
 import { BadRequestError } from "@/errors";
+import { CategoryModel } from "@/models";
 
 let repo: CategoryRepository;
 let sut: CreateCategoryService;
@@ -19,21 +20,18 @@ describe("Testing Create Category Service", () => {
 			name: faker.commerce.product(),
 		};
 
-		await expect(sut.run(newCategory)).resolves.toBeTypeOf("string");
+		await expect(sut.run(newCategory)).resolves.toBeInstanceOf(CategoryModel);
 	});
 
-	it(
-		"should create a new category and recieves an valid UUID",
-		async () => {
-			const newCategory: CreateCategoryDTO = {
-				name: faker.commerce.product(),
-			};
+	it("should create a new category and recieves an valid UUID", async () => {
+		const category: CreateCategoryDTO = {
+			name: faker.commerce.product(),
+		};
 
-			const newCategoryId = await sut.run(newCategory);
+		const newCategory = await sut.run(category);
 
-			expect(CategoryIdDTO.safeParse(newCategoryId).success).toBeTruthy();
-		},
-	);
+		expect(CategoryIdDTO.safeParse(newCategory.id).success).toBeTruthy();
+	});
 
 	it("should not create an invalid category", async () => {
 		await expect(sut.run({ name: "" })).rejects.toBeInstanceOf(BadRequestError);

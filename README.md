@@ -1,4 +1,5 @@
 product
+
 - id
 - name
 - description
@@ -10,25 +11,29 @@ product
 - updated_at
 
 category
+
 - id
 - name
 - category_from@category->id
 
 brand
+
 - id
 - name
 - logo
 
 stock
+
 - id
 - product_id
 - amount
 
 stock_exits
+
 - product_id
 - amount
 - exit_at
 - cost_price
 - markup_percentage
 
-- [ ] Criar um Paginator
+- [ ] Ajeitar as camadas de Repositories e Services para determinadas ações retornarem a instância de CategoryModel

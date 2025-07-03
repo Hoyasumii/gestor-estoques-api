@@ -13,6 +13,8 @@ import { GetAllCategory } from "./get-all-category";
 import { UpdateCategory } from "./update-category";
 import { DeleteCategory } from "./delete-category";
 import { GetParentByCategoryId } from "./get-parent-by-category-id";
+import type { CategoryModel } from "@/models";
+import { GetCategory } from "./get-category";
 
 export class CategoryRepository
 	extends InMemoryRepository<CategoryDTO>
@@ -32,6 +34,10 @@ export class CategoryRepository
 
 	async hasChildren(data: CategoryIdDTO) {
 		return await new CategoryHasChildren(this).run(data);
+	}
+
+	async get(id: CategoryIdDTO): Promise<CategoryModel | undefined> {
+		return await new GetCategory(this).run(id);
 	}
 
 	async getAll(limit?: number, page?: number) {

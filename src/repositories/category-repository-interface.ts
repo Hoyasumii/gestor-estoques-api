@@ -5,11 +5,13 @@ import type {
 	CategoryIdDTO,
 	UpdateCategoryDTO,
 } from "@/dtos/category";
+import type { CategoryModel } from "@/models";
 
 export interface CategoryRepositoryInterface {
 	get length(): number;
 
 	create(data: CreateCategoryDTO): Promise<CategoryIdDTO>;
+	get(id: CategoryIdDTO): Promise<CategoryModel | undefined>;
 	getAll(limit?: number, page?: number): Promise<Array<CategoryDTO>>;
 	getParentById(data: CategoryIdDTO): Promise<CategoryDTO | undefined>;
 	exists(data: CategoryIdDTO): Promise<boolean>;
