@@ -1,13 +1,13 @@
-import type { CategoryDTO } from "@/dtos/category";
 import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import type { CommandObject } from "g/types";
+import type { CategoryModel } from "@/models";
 
 export class GetAllCategory
-	implements CommandObject<unknown, Array<CategoryDTO>>
+	implements CommandObject<unknown, Array<CategoryModel>>
 {
-	constructor(private repository: InMemoryRepository<CategoryDTO>) {}
+	constructor(private repository: InMemoryRepository<CategoryModel>) {}
 
-	async run(limit?: number, page?: number): Promise<Array<CategoryDTO>> {
+	async run(limit?: number, page?: number): Promise<Array<CategoryModel>> {
 		const data = this.repository.data;
 
 		if (!limit) return data;

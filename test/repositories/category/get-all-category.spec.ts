@@ -1,10 +1,10 @@
-import type { CategoryDTO } from "@/dtos/category";
 import { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import { GetAllCategory } from "./get-all-category";
 import { beforeEach, describe, expect, it } from "vitest";
 import { makeCategory } from "t/factories/entities";
+import type { CategoryModel } from "@/models";
 
-class Dep extends InMemoryRepository<CategoryDTO> {}
+class Dep extends InMemoryRepository<CategoryModel> {}
 
 let dependency: Dep;
 let sut: GetAllCategory;

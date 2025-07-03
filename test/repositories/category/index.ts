@@ -1,5 +1,4 @@
 import type {
-	CategoryDTO,
 	CategoryIdDTO,
 	CreateCategoryDTO,
 	UpdateCategoryDTO,
@@ -12,13 +11,12 @@ import { CategoryHasChildren } from "./category-has-children";
 import { GetAllCategory } from "./get-all-category";
 import { UpdateCategory } from "./update-category";
 import { DeleteCategory } from "./delete-category";
-import { GetParentByCategoryId } from "./get-parent-by-category-id";
 import type { CategoryModel } from "@/models";
 import { GetCategory } from "./get-category";
 import { GetNearChildren } from "./get-near-children";
 
 export class CategoryRepository
-	extends InMemoryRepository<CategoryDTO>
+	extends InMemoryRepository<CategoryModel>
 	implements CategoryRepositoryInterface
 {
 	get length(): number {
@@ -47,10 +45,6 @@ export class CategoryRepository
 
 	async getNearChildren(id: CategoryIdDTO): Promise<CategoryModel | undefined> {
 		return await new GetNearChildren(this).run(id);
-	}
-
-	async getParentById(data: CategoryIdDTO) {
-		return await new GetParentByCategoryId(this).run(data);
 	}
 
 	async update(data: UpdateCategoryDTO) {

@@ -35,5 +35,3 @@ stock_exits
 - exit_at
 - cost_price
 - markup_percentage
-
-- [ ] Ajeitar as camadas de Repositories e Services para determinadas ações retornarem a instância de CategoryModel

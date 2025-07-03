@@ -1,13 +1,12 @@
-import type { DeleteCategoryDTO, CategoryDTO } from "@/dtos/category";
+import type { CategoryIdDTO } from "@/dtos/category";
 import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import type { CommandObject } from "g/types";
+import type { CategoryModel } from "@/models";
 
-export class DeleteCategory
-	implements CommandObject<DeleteCategoryDTO, boolean>
-{
-	constructor(private repository: InMemoryRepository<CategoryDTO>) {}
+export class DeleteCategory implements CommandObject<CategoryIdDTO, boolean> {
+	constructor(private repository: InMemoryRepository<CategoryModel>) {}
 
-	async run(id: DeleteCategoryDTO): Promise<boolean> {
+	async run(id: CategoryIdDTO): Promise<boolean> {
 		const childrenIndex = this.repository.data.findIndex(
 			(target) => target.categoryFrom === id,
 		);

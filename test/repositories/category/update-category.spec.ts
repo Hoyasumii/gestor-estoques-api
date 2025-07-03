@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { UpdateCategory } from "./update-category";
 import { InMemoryRepository } from "~/test/repositories/in-memory-repository";
-import type { CategoryDTO } from "@/dtos/category";
 import { randomUUID } from "node:crypto";
 import { faker } from "@faker-js/faker";
 import { makeCategory } from "t/factories/entities";
+import type { CategoryModel } from "@/models";
 
-class Dep extends InMemoryRepository<CategoryDTO> {}
+class Dep extends InMemoryRepository<CategoryModel> {}
 
 let repo: Dep;
 let sut: UpdateCategory;

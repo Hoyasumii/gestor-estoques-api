@@ -1,10 +1,10 @@
-import type { CategoryDTO } from "@/dtos/category";
 import { InMemoryRepository } from "~/test/repositories/in-memory-repository";
 import { beforeEach, describe, expect, it } from "vitest";
 import { DeleteCategory } from "./delete-category";
 import { makeCategory } from "t/factories/entities";
+import type { CategoryModel } from "@/models";
 
-class Dep extends InMemoryRepository<CategoryDTO> {}
+class Dep extends InMemoryRepository<CategoryModel> {}
 
 let repo: Dep;
 let sut: DeleteCategory;
