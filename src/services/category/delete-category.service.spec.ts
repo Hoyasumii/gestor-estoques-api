@@ -35,5 +35,24 @@ describe("Testing Delete Category Service", async () => {
 		).resolves.toBeFalsy();
 	});
 
-	it.todo("should delete an category and their children's");
+	it("should delete an category and their children's", async () => {
+		const parentCategory = makeCategory();
+
+		const categoryId = await repo.create(parentCategory);
+		await repo.create(makeCategory());
+
+		for (let index = 0; index < 5; index++) {
+			const children0 = makeCategory(categoryId);
+			const children0Id = await repo.create(children0);
+
+			const children1 = makeCategory(children0Id);
+			await repo.create(children1);
+		}
+
+		expect(repo.length).toBe(12);
+		await expect(
+			sut.run({ id: categoryId, recursive: true }),
+		).resolves.toBeTruthy();
+		expect(repo.length).toBe(1);
+	});
 });

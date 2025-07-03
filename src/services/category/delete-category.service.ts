@@ -25,16 +25,17 @@ export class DeleteCategoryService extends Service<
 			return await this.repository.delete(id);
 		}
 
-		let nearChildren = await this.repository.getNearChildren(id);
+		return await this.recursiveRemoval(id);
+	}
 
-		while (nearChildren) {
-			nearChildren = await this.repository.getNearChildren(id);
+	private async recursiveRemoval(target: string): Promise<boolean> {
+		const targetChildren = await this.repository.getNearChildren(target);
+
+		if (targetChildren) {
+			await this.recursiveRemoval(targetChildren.id);
+			return await this.recursiveRemoval(target);
 		}
 
-		// this.repository.hasChildren
+		return await this.repository.delete(target);
 	}
 }
-
-// Pai -> Verificar se tem Children
-// Se tiver -> Verificar se o children tem children [REPETE até que não tenha]
-// Se não tiver -> Remove.
