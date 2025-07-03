@@ -1,9 +1,9 @@
 import type { CategoryIdDTO, CategoryDTO } from "@/dtos/category";
 import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
-import type { Service } from "g/types";
+import type { CommandObject } from "g/types";
 
 export class CategoryHasChildren
-	implements Service<never, CategoryIdDTO, boolean>
+	implements CommandObject<CategoryIdDTO, boolean>
 {
 	constructor(private repository: InMemoryRepository<CategoryDTO>) {}
 

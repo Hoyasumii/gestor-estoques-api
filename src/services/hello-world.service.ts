@@ -1,8 +1,10 @@
-import type { Service } from "g/types";
+import { Service } from "g/abstract-classes";
 
-export class HelloWorldService
-	implements Service<never, undefined, "Hello World">
-{
+export class HelloWorldService extends Service<
+	undefined,
+	never,
+	"Hello World"
+> {
 	async run(): Promise<"Hello World"> {
 		return "Hello World";
 	}

@@ -1,14 +1,13 @@
 import type { CategoryRepositoryInterface } from "@/repositories";
-import type { Service } from "g/types";
+import { Service } from "g/abstract-classes";
 import { DeleteCategoryServiceDTO } from "./dtos";
 import { BadRequestError, ResourceNotFoundError } from "@/errors";
 
-export class DeleteCategoryService
-	implements
-		Service<CategoryRepositoryInterface, DeleteCategoryServiceDTO, boolean>
-{
-	constructor(private repository: CategoryRepositoryInterface) {}
-
+export class DeleteCategoryService extends Service<
+	CategoryRepositoryInterface,
+	DeleteCategoryServiceDTO,
+	boolean
+> {
 	async run(data: DeleteCategoryServiceDTO): Promise<boolean> {
 		const { success } = DeleteCategoryServiceDTO.safeParse(data);
 

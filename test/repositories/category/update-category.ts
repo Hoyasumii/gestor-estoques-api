@@ -1,9 +1,9 @@
 import type { UpdateCategoryDTO, CategoryDTO } from "@/dtos/category";
 import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
-import type { Service } from "g/types";
+import type { CommandObject } from "g/types";
 
 export class UpdateCategory
-	implements Service<never, UpdateCategoryDTO, boolean>
+	implements CommandObject<UpdateCategoryDTO, boolean>
 {
 	constructor(private repository: InMemoryRepository<CategoryDTO>) {}
 

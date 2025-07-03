@@ -14,6 +14,7 @@ export interface CategoryRepositoryInterface {
 	get(id: CategoryIdDTO): Promise<CategoryModel | undefined>;
 	getAll(limit?: number, page?: number): Promise<Array<CategoryDTO>>;
 	getParentById(data: CategoryIdDTO): Promise<CategoryDTO | undefined>;
+	getNearChildren(id: CategoryIdDTO): Promise<CategoryModel | undefined>;
 	exists(data: CategoryIdDTO): Promise<boolean>;
 	hasChildren(data: CategoryIdDTO): Promise<boolean>;
 	update(data: UpdateCategoryDTO): Promise<boolean>;

@@ -1,10 +1,10 @@
 import type { CategoryDTO, CategoryIdDTO } from "@/dtos/category";
 import { CategoryModel } from "@/models";
-import type { Service } from "g/types";
+import type { CommandObject } from "g/types";
 import type { InMemoryRepository } from "t/repositories";
 
 export class GetCategory
-	implements Service<never, CategoryIdDTO, CategoryModel | undefined>
+	implements CommandObject<CategoryIdDTO, CategoryModel | undefined>
 {
 	constructor(private repository: InMemoryRepository<CategoryDTO>) {}
 

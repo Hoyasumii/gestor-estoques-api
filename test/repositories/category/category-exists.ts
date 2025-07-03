@@ -1,10 +1,8 @@
 import type { CategoryIdDTO, CategoryDTO } from "@/dtos/category";
 import type { InMemoryRepository } from "~/test/repositories/in-memory-repository";
-import type { Service } from "g/types";
+import type { CommandObject } from "g/types";
 
-export class CategoryExists
-	implements Service<never, CategoryIdDTO, boolean>
-{
+export class CategoryExists implements CommandObject<CategoryIdDTO, boolean> {
 	constructor(private repository: InMemoryRepository<CategoryDTO>) {}
 
 	async run(data: CategoryIdDTO): Promise<boolean> {

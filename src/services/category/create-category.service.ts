@@ -2,14 +2,13 @@ import { CreateCategoryDTO } from "@/dtos/category";
 import { BadRequestError } from "@/errors";
 import { CategoryModel } from "@/models";
 import type { CategoryRepositoryInterface } from "@/repositories";
-import type { Service } from "g/types";
+import { Service } from "g/abstract-classes";
 
-export class CreateCategoryService
-	implements
-		Service<CategoryRepositoryInterface, CreateCategoryDTO, CategoryModel>
-{
-	constructor(private repository: CategoryRepositoryInterface) {}
-
+export class CreateCategoryService extends Service<
+	CategoryRepositoryInterface,
+	CreateCategoryDTO,
+	CategoryModel
+> {
 	async run(data: CreateCategoryDTO): Promise<CategoryModel> {
 		const { success } = CreateCategoryDTO.safeParse(data);
 
